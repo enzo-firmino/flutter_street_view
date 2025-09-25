@@ -8,7 +8,7 @@ import 'package:flutter_google_street_view/src/state/street_view_base_state.dart
 class StreetViewState extends StreetViewBaseState {
   get _onStreetViewCreated => widget.onStreetViewCreated;
   final Completer<StreetViewController> _controllerCompleter =
-      Completer<StreetViewController>();
+  Completer<StreetViewController>();
   late StreetViewController _controller;
   late StreetViewPanoramaOptions _streetViewOptions;
 
@@ -70,13 +70,13 @@ class StreetViewState extends StreetViewBaseState {
       zoomControl: widget.zoomControl,
       zoomControlOptions: widget.zoomControlOptions,
       visible: widget.visible
-      // Web only
-      );
+    // Web only
+  );
 
   void _updateOptions() async {
     final StreetViewPanoramaOptions newOptions = optionFromWidget;
     final Map<String, dynamic> updates =
-        _streetViewOptions.updatesMap(newOptions);
+    _streetViewOptions.updatesMap(newOptions);
     if (updates.isEmpty) {
       return;
     }
@@ -91,7 +91,7 @@ class StreetViewState extends StreetViewBaseState {
 
   void _onPlatformViewCreated(int id) async {
     final StreetViewController controller =
-        await StreetViewController.init(id, this);
+    await StreetViewController.init(id, this);
     _controller = controller;
     _controllerCompleter.complete(controller);
     if (_onStreetViewCreated != null) _onStreetViewCreated!(controller);
